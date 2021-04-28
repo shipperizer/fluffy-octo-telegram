@@ -5,7 +5,6 @@ go 1.16
 require (
 	github.com/envoyproxy/go-control-plane v0.9.8
 	github.com/google/go-cmp v0.5.4 // indirect
-	github.com/google/martian v2.1.0+incompatible
 	github.com/gorilla/mux v1.8.0
 	github.com/grpc-ecosystem/go-grpc-prometheus v1.2.0
 	github.com/kelseyhightower/envconfig v1.4.0
