@@ -5,8 +5,8 @@ import (
 	"crypto/x509"
 	"io/ioutil"
 
-	"github.com/google/martian/log"
 	grpc_prometheus "github.com/grpc-ecosystem/go-grpc-prometheus"
+	log "github.com/sirupsen/logrus"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/credentials"
 	"google.golang.org/grpc/reflection"
@@ -27,7 +27,7 @@ func InitGRPC(tlsConfig *TLS) *grpc.Server {
 			log.Error("issue with tlsConfig for GRPC")
 			log.Error("proceeding without tls for GRPC server")
 		} else {
-			opts.append(creds)
+			opts = append(opts, grpc.Creds(creds))
 		}
 	}
 

@@ -4,8 +4,8 @@ import (
 	"context"
 
 	log "github.com/sirupsen/logrus"
+	"google.golang.org/genproto/googleapis/rpc/status"
 	"google.golang.org/grpc"
-	"google.golang.org/grpc/status"
 
 	envoyAuthV2 "github.com/envoyproxy/go-control-plane/envoy/service/auth/v3"
 	envoyAuthV3 "github.com/envoyproxy/go-control-plane/envoy/service/auth/v3"
@@ -19,7 +19,7 @@ type RPCInterface interface {
 // ##################### V3 Auth GRPC #################### //
 
 type RPCv2 struct {
-	envoyAuthV2.UnimplementedDecisionServiceServer
+	envoyAuthV2.UnimplementedAuthorizationServer
 }
 
 func (rpc *RPCv2) Check(ctx context.Context, r *envoyAuthV2.CheckRequest) (*envoyAuthV2.CheckResponse, error) {
@@ -32,7 +32,10 @@ func (rpc *RPCv2) Check(ctx context.Context, r *envoyAuthV2.CheckRequest) (*envo
 	}
 
 	return &envoyAuthV2.CheckResponse{
-		Status: status.Convert(nil),
+		Status: &status.Status{
+			Code:    0,
+			Message: "authorized",
+		},
 	}, nil
 }
 
@@ -49,7 +52,7 @@ func NewRPCv2() RPCInterface {
 // ##################### V3 Auth GRPC #################### //
 
 type RPCv3 struct {
-	envoyAuthV3.UnimplementedDecisionServiceServer
+	envoyAuthV3.UnimplementedAuthorizationServer
 }
 
 func (rpc *RPCv3) Check(ctx context.Context, r *envoyAuthV3.CheckRequest) (*envoyAuthV3.CheckResponse, error) {
@@ -62,7 +65,10 @@ func (rpc *RPCv3) Check(ctx context.Context, r *envoyAuthV3.CheckRequest) (*envo
 	}
 
 	return &envoyAuthV3.CheckResponse{
-		Status: status.Convert(nil),
+		Status: &status.Status{
+			Code:    0,
+			Message: "authorized",
+		},
 	}, nil
 }
 
