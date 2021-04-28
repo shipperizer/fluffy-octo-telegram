@@ -17,7 +17,7 @@ spec:
   project: default
   source:
     path: deployments/kustomize
-    repoURL: git@github.com:shipperizer/furry-train.git
+    repoURL: git@github.com:shipperizer/fluffy-octo-telegram.git
     targetRevision: HEAD
   syncPolicy:
     automated:
