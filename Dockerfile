@@ -1,11 +1,11 @@
 FROM --platform=$BUILDPLATFORM golang:1.16 AS builder
 
-LABEL org.opencontainers.image.source=https://github.com/shipperizer/furry-train
+LABEL org.opencontainers.image.source=https://github.com/shipperizer/fluffy-octo-telegram
 
 ARG SKAFFOLD_GO_GCFLAGS
 ARG TARGETOS
 ARG TARGETARCH
-ARG app_name=kafka
+ARG app_name=grpc
 
 ENV GOOS=$TARGETOS
 ENV GOARCH=$TARGETARCH
@@ -28,7 +28,7 @@ RUN make build
 
 FROM gcr.io/distroless/static:nonroot
 
-LABEL org.opencontainers.image.source=https://github.com/shipperizer/furry-train
+LABEL org.opencontainers.image.source=https://github.com/shipperizer/fluffy-octo-telegram
 
 COPY --from=builder /go/bin/app /app
 COPY --from=builder /bin/grpc_health_probe /bin/grpc_health_probe
