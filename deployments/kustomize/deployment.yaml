@@ -58,4 +58,4 @@ spec:
       volumes:
       - name: tls
         secret:
-          secretName: contour-auth-secret
+          secretName: fluffy-octo-telegram-tls
