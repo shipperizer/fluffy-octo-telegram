@@ -4,11 +4,12 @@ commonLabels:
   deployment: fluffy-octo-telegram-grpc-app
   app: fluffy-octo-telegram-grpc-app
 resources:
-- selfsigned-issuer.yaml
+- selfSignedIssuer.yaml
 - certificate.yaml
 - deployment.yaml
 - service.yaml
 - configMap.yaml
+- extServer.yaml
 images:
-- name: ghcr.io/shipperizer/name: fluffy-octo-telegram-grpc-app
+- name: ghcr.io/shipperizer/fluffy-octo-telegram-grpc-app
   newTag: v0.1.0
