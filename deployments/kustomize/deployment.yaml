@@ -1,0 +1,61 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fluffy-octo-telegram-grpc-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: fluffy-octo-telegram-grpc-app
+  template:
+    metadata:
+      labels:
+        app: fluffy-octo-telegram-grpc-app
+      annotations:
+        prometheus.io/path: /metrics
+        prometheus.io/scrape: "true"
+        prometheus.io/port: "8000"
+    spec:
+      containers:
+      - image: ghcr.io/shipperizer/fluffy-octo-telegram-grpc-app
+        name: fluffy-octo-telegram-grpc-app
+        envFrom:
+          - configMapRef:
+              name: fluffy-octo-telegram-grpc-app
+        ports:
+          - containerPort: 9000
+          name: grpc
+          protocol: TCP
+          - containerPort: 8000
+          name: metrics
+          protocol: TCP
+        livenessProbe:
+          exec:
+            command:
+            - /bin/grpc_health_probe
+            - -addr=:9000
+          failureThreshold: 10
+          initialDelaySeconds: 30
+          periodSeconds: 10
+          successThreshold: 1
+          timeoutSeconds: 5
+        readinessProbe:
+          exec:
+            command:
+            - /bin/grpc_health_probe
+            - -addr=:9000
+          failureThreshold: 10
+          initialDelaySeconds: 10
+          periodSeconds: 10
+          successThreshold: 1
+          timeoutSeconds: 5
+        volumeMounts:
+        - name: tls
+          mountPath: /tls
+          readOnly: true
+      imagePullSecrets:
+      - name: regcred-github
+      volumes:
+      - name: tls
+        secret:
+          secretName: contour-auth-secret

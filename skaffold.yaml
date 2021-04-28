@@ -1,0 +1,36 @@
+apiVersion: skaffold/v2beta14
+kind: Config
+build:
+  artifacts:
+  - image: ghcr.io/shipperizer/fluffy-octo-telegram-grpc-app
+    sync:
+      infer:
+      - "cmd/grpc/main.go"
+      - "go.mod"
+      - "go.sum"
+    custom:
+      buildCommand: ./buildx.sh
+      dependencies:
+        dockerfile:
+          path: Dockerfile
+  local:
+    push: true
+
+deploy:
+  kustomize:
+    paths:
+      - "deployments/kustomize"
+      - "argocd.yaml"
+
+profiles:
+- name: kaniko
+  build:
+    artifacts:
+    - image: ghcr.io/shipperizer/fluffy-octo-telegram-grpc-app
+      kaniko:
+        image: gcr.io/kaniko-project/executor:arm64
+        initImage: docker.io/busybox:stable
+    cluster:
+      randomDockerConfigSecret: true
+      dockerConfig:
+        secretName: regcred-github-kaniko

@@ -1,0 +1,12 @@
+apiVersion: cert-manager.io/v1alpha3
+kind: Certificate
+metadata:
+  name: fluffy-octo-telegram-grpc
+spec:
+  dnsNames:
+  - fluffy-octo-telegram-grpc-app
+  - fluffy-octo-telegram-grpc-app.svc.local
+  - fluffy-octo-telegram-grpc-app.svc.cluster.local
+  secretName: fluffy-octo-telegram-tls
+  issuerRef:
+    name: contour-selfsigned

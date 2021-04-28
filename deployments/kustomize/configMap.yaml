@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: fluffy-octo-telegram-grpc-app
+data:
+  HTTP_PORT: "8000"
+  GRPC_PORT: "9000"
+  CA_PATH: "/tls/ca.crt"
+  KEY_PATH: "/tls/tls.key"
+  CERT_PATH: "/tls/tls.crt"

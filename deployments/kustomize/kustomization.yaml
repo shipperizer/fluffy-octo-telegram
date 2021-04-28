@@ -1,0 +1,14 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+commonLabels:
+  deployment: fluffy-octo-telegram-grpc-app
+  app: fluffy-octo-telegram-grpc-app
+resources:
+- selfsigned-issuer.yaml
+- certificate.yaml
+- deployment.yaml
+- service.yaml
+- configMap.yaml
+images:
+- name: ghcr.io/shipperizer/name: fluffy-octo-telegram-grpc-app
+  newTag: v0.1.0
