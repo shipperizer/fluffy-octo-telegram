@@ -36,6 +36,7 @@ func InitGRPC(tlsConfig *TLS) *grpc.Server {
 
 	NewRPCv2().Register(server)
 	NewRPCv3().Register(server)
+	NewHealthRPC().Register(server)
 
 	// TODO @shipperizer this increases cardinality of metric, use an env var for enabling it
 	grpc_prometheus.EnableHandlingTimeHistogram()
