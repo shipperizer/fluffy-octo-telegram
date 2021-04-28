@@ -6,15 +6,11 @@ import (
 	log "github.com/sirupsen/logrus"
 	"google.golang.org/genproto/googleapis/rpc/status"
 	"google.golang.org/grpc"
+	"google.golang.org/grpc/codes"
 
 	envoyAuthV2 "github.com/envoyproxy/go-control-plane/envoy/service/auth/v3"
 	envoyAuthV3 "github.com/envoyproxy/go-control-plane/envoy/service/auth/v3"
 )
-
-// RPCInterface interface for RPC.
-type RPCInterface interface {
-	Register(*grpc.Server)
-}
 
 // ##################### V3 Auth GRPC #################### //
 
@@ -32,8 +28,11 @@ func (rpc *RPCv2) Check(ctx context.Context, r *envoyAuthV2.CheckRequest) (*envo
 	}
 
 	return &envoyAuthV2.CheckResponse{
+		HttpResponse: &envoyAuthV2.CheckResponse_OkResponse{
+			OkResponse: &envoyAuthV2.OkHttpResponse{},
+		},
 		Status: &status.Status{
-			Code:    0,
+			Code:    int32(codes.OK),
 			Message: "authorized",
 		},
 	}, nil
@@ -65,8 +64,11 @@ func (rpc *RPCv3) Check(ctx context.Context, r *envoyAuthV3.CheckRequest) (*envo
 	}
 
 	return &envoyAuthV3.CheckResponse{
+		HttpResponse: &envoyAuthV3.CheckResponse_OkResponse{
+			OkResponse: &envoyAuthV3.OkHttpResponse{},
+		},
 		Status: &status.Status{
-			Code:    0,
+			Code:    int32(codes.OK),
 			Message: "authorized",
 		},
 	}, nil
