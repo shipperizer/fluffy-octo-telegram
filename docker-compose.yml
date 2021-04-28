@@ -1,0 +1,14 @@
+version: "3.7"
+services:
+  debug:
+    build:
+      dockerfile: Dockerfile
+      context: .
+      target: builder
+      args:
+        app_name: grpc
+    ports:
+      - 8000
+      - 9000
+    volumes:
+      - .:/var/app
