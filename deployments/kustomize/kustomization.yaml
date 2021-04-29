@@ -10,6 +10,7 @@ resources:
 - service.yaml
 - configMap.yaml
 - extServer.yaml
+
 images:
 - name: ghcr.io/shipperizer/fluffy-octo-telegram-grpc-app
-  newTag: v0.1.0
+  newTag: v1.0.0
