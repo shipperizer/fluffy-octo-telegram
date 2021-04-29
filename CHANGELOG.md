@@ -1,5 +1,12 @@
 # Changelog
 
+### [1.0.1](https://www.github.com/shipperizer/fluffy-octo-telegram/compare/v1.0.0...v1.0.1) (2021-04-29)
+
+
+### Bug Fixes
+
+* bad import for v2 ([6b9a1ae](https://www.github.com/shipperizer/fluffy-octo-telegram/commit/6b9a1aeb0d6b3720e4038a671be35fba0d600faf))
+
 ## 1.0.0 (2021-04-28)
 
 
