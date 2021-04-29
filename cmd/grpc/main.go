@@ -61,6 +61,7 @@ func main() {
 	)
 
 	go func() {
+		log.Infof("Starting GRPC Server up on %v", specs.GRPCPort)
 		if err := api.Serve(listener); err != nil {
 			log.Fatal(err)
 		}
