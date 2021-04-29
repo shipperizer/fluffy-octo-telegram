@@ -26,6 +26,17 @@ imagePullSecrets:
 - name: regcred-github
 ```
 
+
+*** `deployments/kustomize/extServer.yaml` will have to be deployed manually via kubectl, argocd won't do it as it errors with the following***
+```
+Unable to create application: application spec is invalid: InvalidSpecError: Unable to get app details: rpc error: code =
+Unknown desc = `kustomize build /tmp/git@github.com_shipperizer_fluffy-octo-telegram/deployments/kustomize` failed exit
+status 1: Error: accumulating resources: 2 errors occurred:
+* accumulateFile error: "accumulating resources from 'extServer.yaml': evalsymlink failure on '/tmp/git@github.com_shipperizer_fluffy-octo-telegram/deployments/kustomize/extServer.yaml' : lstat /tmp/git@github.com_shipperizer_fluffy-octo-telegram/deployments/kustomize/extServer.yaml: no such file or directory"
+* loader.New error: "error loading extServer.yaml with git: url lacks orgRepo: extServer.yaml, dir: evalsymlink failure on '/tmp/git@github.com_shipperizer_fluffy-octo-telegram/deployments/kustomize/extServer.yaml' : lstat /tmp/git@github.com_shipperizer_fluffy-octo-telegram/deployments/kustomize/extServer.yaml: no such file or directory, get: invalid source string: extServer.yaml"
+```
+
+
 ### Kaniko
 
 For `kaniko` builds, use the `--profile kaniko` modifier on `skaffold`, for this you will need an `Opaque` secret:

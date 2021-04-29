@@ -20,6 +20,7 @@ deploy:
   kubectl:
     manifests:
     - "argocd.yaml"
+    - "deployments/kustomize/extServer.yaml" # check README.md
   kustomize:
     paths:
       - "deployments/kustomize"
