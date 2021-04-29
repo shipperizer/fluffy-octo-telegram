@@ -8,7 +8,7 @@ import (
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/codes"
 
-	envoyAuthV2 "github.com/envoyproxy/go-control-plane/envoy/service/auth/v3"
+	envoyAuthV2 "github.com/envoyproxy/go-control-plane/envoy/service/auth/v2"
 	envoyAuthV3 "github.com/envoyproxy/go-control-plane/envoy/service/auth/v3"
 )
 
