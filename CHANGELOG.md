@@ -1,5 +1,15 @@
 # Changelog
 
+### [1.0.2](https://www.github.com/shipperizer/fluffy-octo-telegram/compare/v1.0.1...v1.0.2) (2021-04-29)
+
+
+### Bug Fixes
+
+* add log of grpc start ([a28cdc8](https://www.github.com/shipperizer/fluffy-octo-telegram/commit/a28cdc8f3f13a8f429be2fad733a4f40dfbd2bfa))
+* adjust deployment healthcheck ([da3105f](https://www.github.com/shipperizer/fluffy-octo-telegram/commit/da3105f91ba391e7f8f7f863989f1274b19fae9b))
+* disable tls healthcheck while i figure out how to do it ([3b4f53d](https://www.github.com/shipperizer/fluffy-octo-telegram/commit/3b4f53dc08f0254ba676d933bf410178fdfffff9))
+* use v1.0.0 image for a start ([aa77bf7](https://www.github.com/shipperizer/fluffy-octo-telegram/commit/aa77bf78741072ac1d8551f84bd40c0ac8915726))
+
 ### [1.0.1](https://www.github.com/shipperizer/fluffy-octo-telegram/compare/v1.0.0...v1.0.1) (2021-04-29)
 
 
