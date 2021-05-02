@@ -10,10 +10,11 @@ build:
       - "go.sum"
     custom:
       buildCommand: ./buildx.sh
-      app_name: grpc
       dependencies:
         dockerfile:
           path: Dockerfile
+          buildArgs:
+            app_name: grpc
   - image: ghcr.io/shipperizer/fluffy-octo-telegram-web-app
     sync:
       infer:
@@ -22,11 +23,11 @@ build:
       - "go.sum"
     custom:
       buildCommand: ./buildx.sh
-      buildArgs:
-        app_name: web
       dependencies:
         dockerfile:
           path: Dockerfile
+          buildArgs:
+            app_name: web
   local:
     push: true
 
