@@ -24,6 +24,8 @@ WORKDIR /var/app
 
 COPY . .
 
+ENV APP_NAME=$app_name
+
 RUN make build
 
 FROM gcr.io/distroless/static:nonroot
