@@ -9,8 +9,8 @@ resources:
 - deployment.yaml
 - service.yaml
 - configMap.yaml
-- httpProxy.yaml
-- rootProxy.yaml
+# - httpProxy.yaml
+# - rootProxy.yaml
 # - extServer.yaml excluded due to errors with kustomize
 
 images:
@@ -20,5 +20,16 @@ images:
   newTag: v1.0.0
 
 
-patchesStrategicMerge:
-- rootProxy.yaml
+patchesJson6902:
+- target:
+    version: v1
+    kind: HTTPProxy
+    name: api-shipperizer-org
+  patch: |
+    - op: add
+      path: /spec/includes
+      value:
+      - name: fluffy-octo-telegram-web-app
+        namespace: default
+        conditions:
+        - prefix: /api/.well-known/jwks.json

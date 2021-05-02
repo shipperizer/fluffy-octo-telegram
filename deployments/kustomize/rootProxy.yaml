@@ -16,8 +16,3 @@ spec:
       extensionRef:
         name: fluffy-octo-telegram-grpc-app
         namespace: default
-  includes:
-  - name: fluffy-octo-telegram-web-app
-    namespace: default
-    conditions:
-    - prefix: /api/.well-known/jwks.json

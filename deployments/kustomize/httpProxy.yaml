@@ -5,7 +5,7 @@ metadata:
 spec:
   routes:
     - conditions:
-      - prefix: /
+      - prefix: /api/.well-known/jwks.json
       services:
       - name: fluffy-octo-telegram-web-app
         port: 80
