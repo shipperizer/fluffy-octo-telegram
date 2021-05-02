@@ -1,4 +1,4 @@
 kustomize:
   images:
   - ghcr.io/shipperizer/fluffy-octo-telegram-grpc-app:v1.0.2
-  - ghcr.io/shipperizer/fluffy-octo-telegram-web-app=ghcr.io/shipperizer/fluffy-octo-telegram-web-app:v1.0.2-16-g6bf5315
+  - ghcr.io/shipperizer/fluffy-octo-telegram-web-app=ghcr.io/shipperizer/fluffy-octo-telegram-web-app:v1.0.2-17-g12b49d2
