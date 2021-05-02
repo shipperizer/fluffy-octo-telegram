@@ -1,0 +1,23 @@
+apiVersion: projectcontour.io/v1
+kind: HTTPProxy
+metadata:
+  name: api-shipperizer-org
+spec:
+  virtualhost:
+    fqdn: api.shipperizer.org
+    tls:
+      secretName: api-shipperizer-org-tls
+    rateLimitPolicy:
+      local:
+        requests: 50
+        unit: second
+        burst: 10
+    authorization:
+      extensionRef:
+        name: fluffy-octo-telegram-grpc-app
+        namespace: default
+  includes:
+  - name: fluffy-octo-telegram-web-app
+    namespace: default
+    conditions:
+    - prefix: /api/.well-known/jwks.json
