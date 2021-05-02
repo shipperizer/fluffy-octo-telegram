@@ -14,9 +14,9 @@ func LoadKeyFromFile(filename string) ([]byte, error) {
 	return key, err
 }
 
-func LoadJWKs(pubPath, privPath string) (jwk.Set, jwk.Key, error) {
-	var set jwk.Set
-	var key jwk.Key
+func LoadJWKs(pubPath, privPath string) (jwk.Set, jwk.Set, error) {
+	var pub jwk.Set
+	var prv jwk.Set
 
 	var wg sync.WaitGroup
 	errs := make([]error, 0)
@@ -26,7 +26,7 @@ func LoadJWKs(pubPath, privPath string) (jwk.Set, jwk.Key, error) {
 	go func() {
 		var err error
 
-		set, err = jwk.ReadFile(pubPath)
+		pub, err = jwk.ReadFile(pubPath)
 
 		if err != nil {
 			log.Errorf("cannot find the file %s: %v", pubPath, err)
@@ -39,19 +39,11 @@ func LoadJWKs(pubPath, privPath string) (jwk.Set, jwk.Key, error) {
 	go func() {
 		var err error
 
-		keyRaw, err := LoadKeyFromFile(privPath)
+		prv, err = jwk.ReadFile(privPath)
 
 		if err != nil {
-			log.Errorf("cannot find the file %s: %v...moving on", privPath, err)
-			// errs = append(errs, err)
-			return
-		}
-
-		key, err = jwk.ParseKey(keyRaw)
-
-		if err != nil {
-			log.Errorf("error parsing key %s: %v...moving on", keyRaw, err)
-			// errs = append(errs, err)
+			log.Errorf("cannot find the file %s: %v", pubPath, err)
+			errs = append(errs, err)
 		}
 
 		wg.Done()
@@ -61,9 +53,9 @@ func LoadJWKs(pubPath, privPath string) (jwk.Set, jwk.Key, error) {
 
 	for _, e := range errs {
 		if e != nil {
-			return set, key, fmt.Errorf("error fetching keys: %v", errs)
+			return pub, prv, fmt.Errorf("error fetching keys: %v", errs)
 		}
 	}
 
-	return set, key, nil
+	return pub, prv, nil
 }
