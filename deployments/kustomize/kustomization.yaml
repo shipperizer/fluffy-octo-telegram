@@ -10,6 +10,7 @@ resources:
 - service.yaml
 - configMap.yaml
 - httpProxy.yaml
+- rootProxy.yaml
 # - extServer.yaml excluded due to errors with kustomize
 
 images:
