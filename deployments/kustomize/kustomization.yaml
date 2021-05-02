@@ -27,9 +27,10 @@ patchesJson6902:
     name: api-shipperizer-org
   patch: |
     - op: add
-      path: /spec/includes
+      path: /spec/routes
       value:
-      - name: fluffy-octo-telegram-web-app
-        namespace: default
-        conditions:
-        - prefix: /api/.well-known/jwks.json
+        - conditions:
+          - prefix: /api/.well-known/jwks.json
+          services:
+          - name: fluffy-octo-telegram-web-app
+            port: 80
