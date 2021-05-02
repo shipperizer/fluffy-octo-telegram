@@ -10,6 +10,7 @@ build:
       - "go.sum"
     custom:
       buildCommand: ./buildx.sh
+      app_name: grpc
       dependencies:
         dockerfile:
           path: Dockerfile
@@ -21,6 +22,8 @@ build:
       - "go.sum"
     custom:
       buildCommand: ./buildx.sh
+      buildArgs:
+        app_name: web
       dependencies:
         dockerfile:
           path: Dockerfile
