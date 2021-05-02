@@ -9,6 +9,7 @@ resources:
 - deployment.yaml
 - service.yaml
 - configMap.yaml
+- httpProxy.yaml
 # - extServer.yaml excluded due to errors with kustomize
 
 images:

@@ -1,0 +1,20 @@
+apiVersion: projectcontour.io/v1
+kind: HTTPProxy
+metadata:
+  name: fluffy-octo-telegram-web-app
+spec:
+  virtualhost:
+    fqdn: api.shipperizer.org
+    tls:
+      secretName: api-shipperizer-org-tls
+    rateLimitPolicy:
+      local:
+        requests: 50
+        unit: second
+        burst: 10
+  routes:
+    - conditions:
+      - prefix: /api/.well-known/jwks.json
+      services:
+      - name: fluffy-octo-telegram-web-app
+        port: 80
