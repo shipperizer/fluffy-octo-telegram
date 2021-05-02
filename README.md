@@ -20,6 +20,22 @@ pod/fluffy-octo-telegram-grpc-app-68b5b5ff64-r4qs9/fluffy-octo-telegram-grpc-app
 [pod/fluffy-octo-telegram-grpc-app-68b5b5ff64-r4qs9/fluffy-octo-telegram-grpc-app] time="2021-04-29T01:21:57Z" level=debug msg="request attributes.Source: address:{socket_address:{address:\"192.168.86.1\" port_value:57771}}"
 ```
 
+## JWK
+
+Use [`step cli`](https://smallstep.com/docs/step-cli/reference/crypto/jwk/create) to create a jwk, then create a k8s secret with it
+
+```
+step crypto jwk create jwk.pub.json jwk.json  --kty=EC --use=sig --crv=P-521 --no-password --insecure
+
+kubectl create secret generic jwk-pub --from-file=jwk.pub.json
+kubectl create secret generic jwk-priv --from-file=jwk.json
+```
+
+secrets will need to be mounted via volume (k8s for deployment, docker-compose for local dev)
+
+will use env vars to determine path
+
+
 ## Build and deploy
 
 Build setup is for multiarch support, a requirements for this is  [buildx](https://docs.docker.com/buildx/working-with-buildx/)
