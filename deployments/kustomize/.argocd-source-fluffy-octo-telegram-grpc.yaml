@@ -1,3 +1,0 @@
-kustomize:
-  images:
-  - ghcr.io/shipperizer/fluffy-octo-telegram-grpc-app=ghcr.io/shipperizer/fluffy-octo-telegram-grpc-app:v1.0.2
