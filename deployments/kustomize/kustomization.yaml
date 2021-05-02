@@ -15,3 +15,9 @@ resources:
 images:
 - name: ghcr.io/shipperizer/fluffy-octo-telegram-grpc-app
   newTag: v1.0.0
+- name: ghcr.io/shipperizer/fluffy-octo-telegram-web-app
+  newTag: v1.0.0
+
+
+patchesStrategicMerge:
+- rootProxy.yaml
