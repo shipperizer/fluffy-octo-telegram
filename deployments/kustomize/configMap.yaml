@@ -18,5 +18,5 @@ metadata:
   name: fluffy-octo-telegram-web-app
 data:
   HTTP_PORT: "8000"
-  JWK_PATH: "/jwk/jwk.pub.json"
+  JWK_PUB_PATH: "/jwk/jwk.pub.json"
   JWK_PRIV_PATH: "/jwk/jwk.json"
