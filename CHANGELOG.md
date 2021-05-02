@@ -1,5 +1,12 @@
 # Changelog
 
+### [2.0.1](https://www.github.com/shipperizer/fluffy-octo-telegram/compare/v2.0.0...v2.0.1) (2021-05-02)
+
+
+### Bug Fixes
+
+* drop key parisng temporary ([efd5323](https://www.github.com/shipperizer/fluffy-octo-telegram/commit/efd53232954078ad529ef607d5577e42985cd64c))
+
 ## [2.0.0](https://www.github.com/shipperizer/fluffy-octo-telegram/compare/v1.1.1...v2.0.0) (2021-05-02)
 
 
