@@ -1,5 +1,12 @@
 # Changelog
 
+### [1.0.3](https://www.github.com/shipperizer/fluffy-octo-telegram/compare/v1.0.2...v1.0.3) (2021-05-02)
+
+
+### Bug Fixes
+
+* exclude extServer.yaml from kustomize deployment, needs ot be done manually ([8a3ed8f](https://www.github.com/shipperizer/fluffy-octo-telegram/commit/8a3ed8f72d6b02122f364711e0e9e8040c2535f9))
+
 ### [1.0.2](https://www.github.com/shipperizer/fluffy-octo-telegram/compare/v1.0.1...v1.0.2) (2021-04-29)
 
 
