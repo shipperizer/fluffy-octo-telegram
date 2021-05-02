@@ -1,5 +1,15 @@
 # Changelog
 
+### [1.1.1](https://www.github.com/shipperizer/fluffy-octo-telegram/compare/v1.1.0...v1.1.1) (2021-05-02)
+
+
+### Bug Fixes
+
+* adjust build args ([1726a48](https://www.github.com/shipperizer/fluffy-octo-telegram/commit/1726a4834bf1156a3b281ef53b18b62d2f08c5f3))
+* bad package name ([5497230](https://www.github.com/shipperizer/fluffy-octo-telegram/commit/54972300f70498f9337f9598bca102c9c59963c7))
+* pass build args to buildx ([72ae78a](https://www.github.com/shipperizer/fluffy-octo-telegram/commit/72ae78a395cfd1d58ba36a8e2d16f57211444ed2))
+* wrong env var for pub key ([d325401](https://www.github.com/shipperizer/fluffy-octo-telegram/commit/d325401c2e43d9f5bad072f8dae05d4a6a52fedb))
+
 ## [1.1.0](https://www.github.com/shipperizer/fluffy-octo-telegram/compare/v1.0.2...v1.1.0) (2021-05-02)
 
 
