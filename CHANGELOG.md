@@ -1,5 +1,12 @@
 # Changelog
 
+### [2.0.3](https://www.github.com/shipperizer/fluffy-octo-telegram/compare/v2.0.2...v2.0.3) (2021-05-02)
+
+
+### Bug Fixes
+
+* use unencrypted jwks ([7c0269b](https://www.github.com/shipperizer/fluffy-octo-telegram/commit/7c0269b171a978b39ad0ed8ac3340a95523b1aad))
+
 ### [2.0.2](https://www.github.com/shipperizer/fluffy-octo-telegram/compare/v2.0.1...v2.0.2) (2021-05-02)
 
 
