@@ -1,27 +1,29 @@
-package api
+package routing
 
 import (
 	"net/http"
 
 	"github.com/gorilla/mux"
-	"github.com/shipperizer/fluffy-octo-telegram/pkg/monitor"
 	log "github.com/sirupsen/logrus"
+
+	"github.com/shipperizer/fluffy-octo-telegram/pkg/jwks"
+	"github.com/shipperizer/fluffy-octo-telegram/pkg/monitor"
 )
 
 func NewRouter(jwkPubPath, jwkPrivPath string) (http.Handler, error) {
-	jwks, key, err := LoadJWKs(jwkPubPath, jwkPrivPath)
+	jwk, key, err := jwks.LoadJWKs(jwkPubPath, jwkPrivPath)
 
 	if err != nil {
 		return nil, err
 	}
 
-	log.Debugf("jwks: %v", jwks)
+	log.Debugf("jwk: %v", jwk)
 	log.Debugf("key: %v", key)
 
 	router := mux.NewRouter()
 
-	monitor.NewMetricsAPI().(router)
-	jwks.NewJWKAPI(jwks).Routes(router)
+	monitor.NewMonitorAPI().Routes(router)
+	jwks.NewJWKAPI(jwk).Routes(router)
 
 	return router, nil
 }
