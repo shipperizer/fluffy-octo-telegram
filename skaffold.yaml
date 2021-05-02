@@ -13,6 +13,17 @@ build:
       dependencies:
         dockerfile:
           path: Dockerfile
+  - image: ghcr.io/shipperizer/fluffy-octo-telegram-web-app
+    sync:
+      infer:
+      - "cmd/web/main.go"
+      - "go.mod"
+      - "go.sum"
+    custom:
+      buildCommand: ./buildx.sh
+      dependencies:
+        dockerfile:
+          path: Dockerfile
   local:
     push: true
 
@@ -34,6 +45,15 @@ profiles:
         image: gcr.io/kaniko-project/executor:arm64
         initImage: docker.io/busybox:stable
         buildArgs:
+          app_name: grpc
+          TARGETOS: linux
+          TARGETARCH: arm64
+    - image: ghcr.io/shipperizer/fluffy-octo-telegram-web-app
+      kaniko:
+        image: gcr.io/kaniko-project/executor:arm64
+        initImage: docker.io/busybox:stable
+        buildArgs:
+          app_name: web
           TARGETOS: linux
           TARGETARCH: arm64
     cluster:
