@@ -1,3 +1,4 @@
+---
 apiVersion: v1
 kind: ConfigMap
 metadata:
@@ -8,3 +9,14 @@ data:
   CA_PATH: "/tls/ca.crt"
   KEY_PATH: "/tls/tls.key"
   CERT_PATH: "/tls/tls.crt"
+  JWK_PATH: "/jwk/jwk.pub.json"
+  JWK_PRIV_PATH: "/jwk/jwk.json"
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: fluffy-octo-telegram-web-app
+data:
+  HTTP_PORT: "8000"
+  JWK_PATH: "/jwk/jwk.pub.json"
+  JWK_PRIV_PATH: "/jwk/jwk.json"

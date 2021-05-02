@@ -1,3 +1,4 @@
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -12,7 +13,7 @@ spec:
       labels:
         app: fluffy-octo-telegram-grpc-app
       annotations:
-        prometheus.io/path: /metrics
+        prometheus.io/path: /api/v0/metrics
         prometheus.io/scrape: "true"
         prometheus.io/port: "8000"
     spec:
@@ -63,9 +64,77 @@ spec:
         - name: tls
           mountPath: /tls
           readOnly: true
+        - name: jwk
+          mountPath: /jwk
+          readOnly: true
       imagePullSecrets:
       - name: regcred-github
       volumes:
       - name: tls
         secret:
           secretName: fluffy-octo-telegram-tls
+      - name: jwk
+        projected:
+          sources:
+          - secret:
+              name: jwk-pub
+          - secret:
+              name: jwk-priv
+---
+  apiVersion: apps/v1
+  kind: Deployment
+  metadata:
+    name: fluffy-octo-telegram-web-app
+  spec:
+    replicas: 1
+    selector:
+      matchLabels:
+        app: fluffy-octo-telegram-web-app
+    template:
+      metadata:
+        labels:
+          app: fluffy-octo-telegram-web-app
+        annotations:
+          prometheus.io/path: /api/v0/metrics
+          prometheus.io/scrape: "true"
+          prometheus.io/port: "8000"
+      spec:
+        containers:
+        - image: ghcr.io/shipperizer/fluffy-octo-telegram-web-app
+          name: fluffy-octo-telegram-web-app
+          envFrom:
+            - configMapRef:
+                name: fluffy-octo-telegram-web-app
+          ports:
+          - name: http
+            containerPort: 8000
+          readinessProbe:
+            httpGet:
+              path: "/api/v0/metrics"
+              port: 8000
+            initialDelaySeconds: 5
+            failureThreshold: 10
+            timeoutSeconds: 5
+            periodSeconds: 30
+          livenessProbe:
+            httpGet:
+              path: "/api/v0/metrics"
+              port: 8000
+            initialDelaySeconds: 5
+            failureThreshold: 10
+            timeoutSeconds: 5
+            periodSeconds: 30
+          volumeMounts:
+          - name: jwk
+            mountPath: /jwk
+            readOnly: true
+        imagePullSecrets:
+        - name: regcred-github
+        volumes:
+        - name: jwk
+          projected:
+            sources:
+            - secret:
+                name: jwk-pub
+            - secret:
+                name: jwk-priv
