@@ -1,5 +1,16 @@
 # Changelog
 
+## [2.0.0](https://www.github.com/shipperizer/fluffy-octo-telegram/compare/v1.1.1...v2.0.0) (2021-05-02)
+
+
+### ⚠ BREAKING CHANGES
+
+* pass env var to buildx.sh
+
+### Bug Fixes
+
+* pass env var to buildx.sh ([be66dd5](https://www.github.com/shipperizer/fluffy-octo-telegram/commit/be66dd500bbdea4f0d35ab24eec78e0ab99c1967))
+
 ### [1.1.1](https://www.github.com/shipperizer/fluffy-octo-telegram/compare/v1.1.0...v1.1.1) (2021-05-02)
 
 
