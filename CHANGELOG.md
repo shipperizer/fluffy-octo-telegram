@@ -1,5 +1,12 @@
 # Changelog
 
+### [2.0.2](https://www.github.com/shipperizer/fluffy-octo-telegram/compare/v2.0.1...v2.0.2) (2021-05-02)
+
+
+### Bug Fixes
+
+* missing env var in build process ([f3283f5](https://www.github.com/shipperizer/fluffy-octo-telegram/commit/f3283f544dd097718cb2da5ce758c9ceb4201889))
+
 ### [2.0.1](https://www.github.com/shipperizer/fluffy-octo-telegram/compare/v2.0.0...v2.0.1) (2021-05-02)
 
 
