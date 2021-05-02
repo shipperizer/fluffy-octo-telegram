@@ -1,5 +1,28 @@
 # Changelog
 
+## [1.1.0](https://www.github.com/shipperizer/fluffy-octo-telegram/compare/v1.0.2...v1.1.0) (2021-05-02)
+
+
+### Features
+
+* add jwk endpoint, closes [#5](https://www.github.com/shipperizer/fluffy-octo-telegram/issues/5) ([635d0ff](https://www.github.com/shipperizer/fluffy-octo-telegram/commit/635d0ff72707602c3c6927b2f7e0541dad6fa8ec))
+* create API interface ([076b395](https://www.github.com/shipperizer/fluffy-octo-telegram/commit/076b395e56bf58661685a3b017567fda7418e7d7))
+* create web app ([a4cf0c5](https://www.github.com/shipperizer/fluffy-octo-telegram/commit/a4cf0c56125683e5fdb9a34e06ce96aa0a5f138f))
+* test jwks for local dev ([2f2df91](https://www.github.com/shipperizer/fluffy-octo-telegram/commit/2f2df9121c7c2147472e97ef5b3191a2aa810150))
+
+
+### Bug Fixes
+
+* adjust labels, keep rootProxy global for now ([0705e50](https://www.github.com/shipperizer/fluffy-octo-telegram/commit/0705e508a8dcc5f9e701d449891c91fe8c5cba49))
+* adjust monitor http api to API interface ([ed283e6](https://www.github.com/shipperizer/fluffy-octo-telegram/commit/ed283e68e35fb43d4a283107855ddf0bfc4b6c86))
+* drop unused argocd image updater overlay ([8f180f2](https://www.github.com/shipperizer/fluffy-octo-telegram/commit/8f180f27574b6da4d6ecf8e20d9873c26145db21))
+* exclude extServer.yaml from kustomize deployment, needs ot be done manually ([8a3ed8f](https://www.github.com/shipperizer/fluffy-octo-telegram/commit/8a3ed8f72d6b02122f364711e0e9e8040c2535f9))
+* missing rootProxy from file list ([5eb8f73](https://www.github.com/shipperizer/fluffy-octo-telegram/commit/5eb8f73d8126a9f2d37b708a9faca1bdffd46f8f))
+* patch routes, not includes ([b286d51](https://www.github.com/shipperizer/fluffy-octo-telegram/commit/b286d51b3b672b90adf0088fd26bcd9859849674))
+* refactor httpProxy setup ([2eb4d3c](https://www.github.com/shipperizer/fluffy-octo-telegram/commit/2eb4d3c2fc3ce9881ba24d7b195c5a2cce455564))
+* refactor router setup ([90f1c85](https://www.github.com/shipperizer/fluffy-octo-telegram/commit/90f1c85b0df3c77251571195ed2793d1643470da))
+* use a different patch for kustomize ([b31102f](https://www.github.com/shipperizer/fluffy-octo-telegram/commit/b31102fcfb9ba7f6c34503d2af5fff68a6b2742d))
+
 ### [1.0.2](https://www.github.com/shipperizer/fluffy-octo-telegram/compare/v1.0.1...v1.0.2) (2021-04-29)
 
 
