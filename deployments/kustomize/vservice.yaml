@@ -6,7 +6,7 @@ spec:
   hosts:
   - "api.shipperizer.org"
   gateways:
-  - gateway
+  - istio-system/gateway
   http:
   - match:
     - uri:
@@ -15,7 +15,7 @@ spec:
     - destination:
         port:
           number: 80
-        host: fluffy-octo-telegram-grpc-app   
+        host: fluffy-octo-telegram-grpc-app
   - match:
     - uri:
         prefix: /api/.well-known/jwks.json
@@ -24,3 +24,27 @@ spec:
         port: 
           number: 80     
         host: fluffy-octo-telegram-web-app
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: DestinationRule
+metadata:
+  name: fluffy-octo-telegram-grpc-app
+spec:
+  host: fluffy-octo-telegram-grpc-app
+  exportTo:
+    - "."
+  trafficPolicy:
+    loadBalancer:
+      simple: ROUND_ROBIN        
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: DestinationRule
+metadata:
+  name: fluffy-octo-telegram-web-app
+spec:
+  host: fluffy-octo-telegram-web-app
+  exportTo:
+    - "."
+  trafficPolicy:
+    loadBalancer:
+      simple: ROUND_ROBIN        
