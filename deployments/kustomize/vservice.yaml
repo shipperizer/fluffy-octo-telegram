@@ -1,7 +1,7 @@
 apiVersion: networking.istio.io/v1alpha3
 kind: VirtualService
 metadata:
-  name: fluffy-octo-telegram-web-app  
+  name: fluffy-octo-telegram-grpc-app  
 spec:
   hosts:
   - "api.shipperizer.org"
@@ -15,5 +15,5 @@ spec:
     - destination:
         port:
           number: 80
-        host: fluffy-octo-telegram-web-app   
+        host: fluffy-octo-telegram-grpc-app   
         
