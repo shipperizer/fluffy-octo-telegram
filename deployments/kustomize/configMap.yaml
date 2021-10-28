@@ -2,7 +2,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: fluffy-octo-telegram-app-grpc
+  name: fluffy-octo-telegram-grpc-app
 data:
   HTTP_PORT: "8000"
   GRPC_PORT: "9000"
@@ -15,8 +15,8 @@ data:
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: fluffy-octo-telegram-app-web
-data:
+  name: fluffy-octo-telegram-web-app
+-appdata:
   HTTP_PORT: "8000"
   JWK_PUB_PATH: "/jwk/jwk.pub.json"
   JWK_PRIV_PATH: "/jwk/jwk.json"

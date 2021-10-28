@@ -1,7 +1,7 @@
 apiVersion: networking.istio.io/v1alpha3
 kind: VirtualService
 metadata:
-  name: fluffy-octo-telegram-app-web  
+  name: fluffy-octo-telegram-web-app  
 spec:
   hosts:
   - "api.shipperizer.org"
@@ -15,34 +15,34 @@ spec:
     - destination:
         port: 
           number: 80     
-        host: fluffy-octo-telegram-app-web
+        host: fluffy-octo-telegram-web-app
 ---
 apiVersion: networking.istio.io/v1alpha3
 kind: VirtualService
 metadata:
-  name: fluffy-octo-telegram-app-grpc
+  name: fluffy-octo-telegram-grpc-app
 spec:
   hosts:
-  - fluffy-octo-telegram-app-grpc.default.svc.cluster.local   
-  - fluffy-octo-telegram-app-grpc.svc.cluster.local   
-  - fluffy-octo-telegram-app-grpc.svc.local   
-  - fluffy-octo-telegram-app-grpc   
+  - fluffy-octo-telegram-grpc-app.default.svc.cluster.local   
+  - fluffy-octo-telegram-grpc-app.svc.cluster.local   
+  - fluffy-octo-telegram-grpc-app.svc.local   
+  - fluffy-octo-telegram-grpc-app   
   gateways:
   - "mesh"
   http:
-    - name: fluffy-octo-telegram-app-grpc
+    - name: fluffy-octo-telegram-grpc-app
       route:
       - destination:
-          host: fluffy-octo-telegram-app-grpc
+          host: fluffy-octo-telegram-grpc-app
           port: 
             number: 9443
 ---
 apiVersion: networking.istio.io/v1alpha3
 kind: DestinationRule
 metadata:
-  name: fluffy-octo-telegram-app-grpc
+  name: fluffy-octo-telegram-grpc-app
 spec:
-  host: fluffy-octo-telegram-app-grpc
+  host: fluffy-octo-telegram-grpc-app
   exportTo:
     - "."
   trafficPolicy:
@@ -52,9 +52,9 @@ spec:
 apiVersion: networking.istio.io/v1alpha3
 kind: DestinationRule
 metadata:
-  name: fluffy-octo-telegram-app-web
+  name: fluffy-octo-telegram-web-app
 spec:
-  host: fluffy-octo-telegram-app-web
+  host: fluffy-octo-telegram-web-app
   exportTo:
     - "."
   trafficPolicy:
