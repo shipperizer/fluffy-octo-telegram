@@ -15,7 +15,7 @@ spec:
     - destination:
         port: 
           number: 80     
-        host: fluffy-octo-telegram-web-app
+        host: fluffy-octo-telegram-app-web
 ---
 apiVersion: networking.istio.io/v1alpha3
 kind: VirtualService
@@ -27,10 +27,10 @@ spec:
   - fluffy-octo-telegram-app-grpc.svc.cluster.local   
   - fluffy-octo-telegram-app-grpc.svc.local   
   - fluffy-octo-telegram-app-grpc   
+  gateways:
+  - "mesh"
   http:
     - name: fluffy-octo-telegram-app-grpc
-      match:
-      - port: 9443
       route:
       - destination:
           host: fluffy-octo-telegram-app-grpc
