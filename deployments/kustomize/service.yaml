@@ -26,7 +26,7 @@ metadata:
   annotations:
     prometheus.io/path: /api/v0/metrics
     prometheus.io/scrape: "true"
-  name: fluffy-octo-telegra-app-web
+  name: fluffy-octo-telegram-app-web
 spec:
   ports:
   - name: http
@@ -34,5 +34,5 @@ spec:
     protocol: TCP
     targetPort: http
   selector:
-    app: fluffy-octo-telegra-app-web
+    app: fluffy-octo-telegram-app-web
   type: ClusterIP
