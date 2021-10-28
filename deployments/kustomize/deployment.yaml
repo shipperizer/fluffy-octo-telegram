@@ -17,6 +17,7 @@ spec:
         prometheus.io/scrape: "true"
         prometheus.io/port: "8000"
     spec:
+      serviceAccountName: fluffy-octo-telegram-grpc-app
       containers:
       - image: ghcr.io/shipperizer/fluffy-octo-telegram-grpc-app
         name: fluffy-octo-telegram-grpc-app
@@ -99,6 +100,7 @@ spec:
           prometheus.io/scrape: "true"
           prometheus.io/port: "8000"
       spec:
+        serviceAccountName: fluffy-octo-telegram-web-app
         containers:
         - image: ghcr.io/shipperizer/fluffy-octo-telegram-web-app
           name: fluffy-octo-telegram-web-app

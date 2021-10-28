@@ -9,6 +9,7 @@ resources:
 - service.yaml
 - configMap.yaml
 - vservice.yaml
+- rbac.yaml
 # - httpProxy.yaml
 # - rootProxy.yaml
 # - extServer.yaml excluded due to errors with kustomize
