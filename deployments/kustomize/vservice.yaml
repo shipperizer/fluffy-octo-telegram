@@ -38,9 +38,9 @@ spec:
 apiVersion: networking.istio.io/v1alpha3
 kind: DestinationRule
 metadata:
-  name: fluffy-octo-telegram-grpc-app
+  name: fluffy-octo-telegram-app-grpc
 spec:
-  host: fluffy-octo-telegram-grpc-app
+  host: fluffy-octo-telegram-app-grpc
   exportTo:
     - "."
   trafficPolicy:
@@ -50,9 +50,9 @@ spec:
 apiVersion: networking.istio.io/v1alpha3
 kind: DestinationRule
 metadata:
-  name: fluffy-octo-telegram-web-app
+  name: fluffy-octo-telegram-app-web
 spec:
-  host: fluffy-octo-telegram-web-app
+  host: fluffy-octo-telegram-app-web
   exportTo:
     - "."
   trafficPolicy:
