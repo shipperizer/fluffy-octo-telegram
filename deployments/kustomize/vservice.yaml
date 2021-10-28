@@ -29,6 +29,7 @@ spec:
   - fluffy-octo-telegram-grpc-app   
   gateways:
   - "mesh"
+  - istio-system/gateway
   http:
     - name: fluffy-octo-telegram-grpc-app
       match:
