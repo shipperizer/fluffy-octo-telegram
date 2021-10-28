@@ -10,14 +10,6 @@ spec:
   http:
   - match:
     - uri:
-        prefix: /api/v0/metrics
-    route:
-    - destination:
-        port:
-          number: 80
-        host: fluffy-octo-telegram-grpc-app
-  - match:
-    - uri:
         prefix: /api/.well-known/jwks.json
     route:
     - destination:
@@ -34,13 +26,11 @@ spec:
   - fluffy-octo-telegram-app-grpc  
   http:
     - name: fluffy-octo-telegram-app-grpc
-      match:
-        - port: 9443
       route:
-        - destination:
-            host: fluffy-octo-telegram-app-grpc
-            port:
-              number: 9443
+      - destination:
+          host: fluffy-octo-telegram-app-grpc
+          port:
+            name: grpc
 ---
 apiVersion: networking.istio.io/v1alpha3
 kind: DestinationRule
