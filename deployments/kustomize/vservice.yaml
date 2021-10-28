@@ -29,8 +29,8 @@ spec:
       route:
       - destination:
           host: fluffy-octo-telegram-app-grpc
-          port:
-            name: grpc
+          port: 
+            number: 9443
 ---
 apiVersion: networking.istio.io/v1alpha3
 kind: DestinationRule
