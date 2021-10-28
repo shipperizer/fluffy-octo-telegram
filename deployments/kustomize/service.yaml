@@ -5,7 +5,7 @@ metadata:
   annotations:
     prometheus.io/path: /api/v0/metrics
     prometheus.io/scrape: "true"
-  name: fluffy-octo-telegram-grp-appc
+  name: fluffy-octo-telegram-grpc-app
 spec:
   ports:
   - name: http
@@ -17,7 +17,7 @@ spec:
     protocol: TCP
     targetPort: grpc
   selector:
-    app: fluffy-octo-telegram-grp-appc
+    app: fluffy-octo-telegram-grpc-app
   type: ClusterIP
 ---
 apiVersion: v1
