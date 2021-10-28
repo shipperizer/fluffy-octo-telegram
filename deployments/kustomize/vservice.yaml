@@ -31,6 +31,8 @@ spec:
   - "mesh"
   http:
     - name: fluffy-octo-telegram-grpc-app
+      match:
+      - port: 9443
       route:
       - destination:
           host: fluffy-octo-telegram-grpc-app
@@ -44,7 +46,7 @@ metadata:
 spec:
   host: fluffy-octo-telegram-grpc-app
   exportTo:
-    - "."
+  - "."
   trafficPolicy:
     loadBalancer:
       simple: ROUND_ROBIN        
