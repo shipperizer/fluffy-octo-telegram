@@ -29,6 +29,8 @@ spec:
   - fluffy-octo-telegram-app-grpc   
   http:
     - name: fluffy-octo-telegram-app-grpc
+      match:
+      - port: 9443
       route:
       - destination:
           host: fluffy-octo-telegram-app-grpc
