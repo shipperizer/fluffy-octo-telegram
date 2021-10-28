@@ -20,10 +20,13 @@ spec:
 apiVersion: networking.istio.io/v1alpha3
 kind: VirtualService
 metadata:
-  name: fluffy-octo-telegram-app-grpc.svc.cluster.local 
+  name: fluffy-octo-telegram-app-grpc
 spec:
   hosts:
-  - fluffy-octo-telegram-app-grpc  
+  - fluffy-octo-telegram-app-grpc.default.svc.cluster.local   
+  - fluffy-octo-telegram-app-grpc.svc.cluster.local   
+  - fluffy-octo-telegram-app-grpc.svc.local   
+  - fluffy-octo-telegram-app-grpc   
   http:
     - name: fluffy-octo-telegram-app-grpc
       route:
