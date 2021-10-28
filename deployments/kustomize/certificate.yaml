@@ -7,6 +7,7 @@ spec:
   - fluffy-octo-telegram-grpc-app
   - fluffy-octo-telegram-grpc-app.svc.local
   - fluffy-octo-telegram-grpc-app.svc.cluster.local
+  - fluffy-octo-telegram-grpc-app.default.svc.cluster.local
   secretName: fluffy-octo-telegram-tls
   issuerRef:
-    name: contour-selfsigned
+    name: istio-selfsigned
