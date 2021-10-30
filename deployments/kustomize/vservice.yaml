@@ -28,17 +28,15 @@ spec:
   - fluffy-octo-telegram-grpc-app.svc.local   
   - fluffy-octo-telegram-grpc-app   
   gateways:
-  - "mesh"
-  - istio-system/gateway
+  - mesh
   http:
-    - name: fluffy-octo-telegram-grpc-app
-      match:
-      - port: 9443
-      route:
+    - route:
       - destination:
           host: fluffy-octo-telegram-grpc-app
-          port: 
-            number: 9443
+      match:
+      - sourceLabels:           
+          istio: ingressgateway
+      - port: 9443
 ---
 apiVersion: networking.istio.io/v1alpha3
 kind: DestinationRule
