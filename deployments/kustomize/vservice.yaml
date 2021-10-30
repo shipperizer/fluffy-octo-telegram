@@ -23,9 +23,6 @@ metadata:
   name: fluffy-octo-telegram-grpc-app
 spec:
   hosts:
-  - fluffy-octo-telegram-grpc-app.default.svc.cluster.local   
-  - fluffy-octo-telegram-grpc-app.svc.cluster.local   
-  - fluffy-octo-telegram-grpc-app.svc.local   
   - fluffy-octo-telegram-grpc-app   
   gateways:
   - mesh
