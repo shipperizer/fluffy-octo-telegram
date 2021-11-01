@@ -8,6 +8,7 @@ on:
 jobs:
   release-please:
     runs-on: ubuntu-latest
+    id: release
     steps:
       - uses: actions/checkout@v2
       - uses: GoogleCloudPlatform/release-please-action@v2
@@ -39,3 +40,19 @@ jobs:
           password: ${{ secrets.CR_PAT }}
       - name: Build docker image
         run: skaffold build
+  tag:
+    needs: release-please
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - name: Boost version label
+        if: ${{ steps.release.outputs.release_created == true }}    
+        run: |
+          GO111MODULE=on go get sigs.k8s.io/kustomize/kustomize/v3
+          cd deployments/kustomize
+          kustomize edit set label version:v${{ steps.release.outputs.major }}
+          git add kustomization.yaml || true
+          git commit -m"ci: update version label to v${{ steps.release.outputs.major }}"
+          git push
