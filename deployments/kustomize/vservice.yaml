@@ -14,9 +14,7 @@ spec:
     - uri:
         prefix: /api/.well-known/jwks.json
     route:
-    - destination:
-        port: 
-          number: 80     
+    - destination:   
         host: fluffy-octo-telegram-web-app
 ---
 apiVersion: networking.istio.io/v1alpha3
@@ -34,8 +32,6 @@ spec:
     - route:
       - destination:
           host: fluffy-octo-telegram-grpc-app
-          port: 
-            number: 9443
       match:
       - port: 9443
 ---
