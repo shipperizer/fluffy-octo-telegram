@@ -7,8 +7,6 @@ spec:
   - "api.shipperizer.org"
   gateways:
   - istio-system/gateway
-  exportTo:
-  - "."  
   http:
   - match:
     - uri:
@@ -26,8 +24,6 @@ spec:
   - fluffy-octo-telegram-grpc-app   
   gateways:
   - mesh
-  exportTo:
-  - "."
   http:
     - route:
       - destination:
@@ -41,8 +37,6 @@ metadata:
   name: fluffy-octo-telegram-grpc-app
 spec:
   host: fluffy-octo-telegram-grpc-app
-  exportTo:
-  - "."
   trafficPolicy:
     loadBalancer:
       simple: ROUND_ROBIN        
@@ -53,8 +47,6 @@ metadata:
   name: fluffy-octo-telegram-web-app
 spec:
   host: fluffy-octo-telegram-web-app
-  exportTo:
-    - "."
   trafficPolicy:
     loadBalancer:
       simple: ROUND_ROBIN        
