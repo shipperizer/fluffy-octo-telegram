@@ -53,11 +53,12 @@ func main() {
 	}
 
 	api := auth.NewGRPC(
-		&auth.TLS{
-			CAPath:   specs.CAPath,
-			CertPath: specs.CertPath,
-			KeyPath:  specs.KeyPath,
-		},
+		// &auth.TLS{
+		// 	CAPath:   specs.CAPath,
+		// 	CertPath: specs.CertPath,
+		// 	KeyPath:  specs.KeyPath,
+		// },
+		nil
 	)
 
 	go func() {
