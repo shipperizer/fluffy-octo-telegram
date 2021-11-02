@@ -13,7 +13,7 @@ spec:
     protocol: TCP
     targetPort: metrics
   - name: grpc
-    port: 9443
+    port: 9000
     protocol: TCP
     targetPort: grpc
   selector:
