@@ -11,7 +11,7 @@ spec:
   - name: http
     port: 80
     protocol: TCP
-    targetPort: http
+    targetPort: metrics
   - name: grpc
     port: 9443
     protocol: TCP
