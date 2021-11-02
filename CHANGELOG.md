@@ -1,5 +1,12 @@
 # Changelog
 
+### [2.0.4](https://www.github.com/shipperizer/fluffy-octo-telegram/compare/v2.0.3...v2.0.4) (2021-11-02)
+
+
+### Bug Fixes
+
+* disable TLS for grpc service temporary ([1b65eb9](https://www.github.com/shipperizer/fluffy-octo-telegram/commit/1b65eb9cc5aa1b959f6c905e4bdc641a47a2dbae))
+
 ### [2.0.3](https://www.github.com/shipperizer/fluffy-octo-telegram/compare/v2.0.2...v2.0.3) (2021-05-02)
 
 
