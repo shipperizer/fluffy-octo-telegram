@@ -58,7 +58,7 @@ func main() {
 		// 	CertPath: specs.CertPath,
 		// 	KeyPath:  specs.KeyPath,
 		// },
-		nil
+		nil,
 	)
 
 	go func() {
