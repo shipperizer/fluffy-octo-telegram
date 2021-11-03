@@ -36,8 +36,8 @@ spec:
             command:
             - /bin/grpc_health_probe
             - -addr=0.0.0.0:9000
-            - -tls
-            - -tls-no-verify
+            # - -tls
+            # - -tls-no-verify
             # - -tls-ca-cert=/tls/ca.crt
             # - -tls-client-cert=/tls/tls.crt
             # - -tls-client-key=/tls/tls.key
@@ -51,8 +51,8 @@ spec:
             command:
             - /bin/grpc_health_probe
             - -addr=0.0.0.0:9000
-            - -tls
-            - -tls-no-verify
+            # - -tls
+            # - -tls-no-verify
             # - -tls-ca-cert=/tls/ca.crt
             # - -tls-client-cert=/tls/tls.crt
             # - -tls-client-key=/tls/tls.key
