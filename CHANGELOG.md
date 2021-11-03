@@ -1,5 +1,12 @@
 # Changelog
 
+### [2.0.5](https://www.github.com/shipperizer/fluffy-octo-telegram/compare/v2.0.4...v2.0.5) (2021-11-03)
+
+
+### Bug Fixes
+
+* wrong syntax ([228a8d2](https://www.github.com/shipperizer/fluffy-octo-telegram/commit/228a8d2274b5210a9395a9d6bf30a74cdfd56ba9))
+
 ### [2.0.4](https://www.github.com/shipperizer/fluffy-octo-telegram/compare/v2.0.3...v2.0.4) (2021-11-02)
 
 
