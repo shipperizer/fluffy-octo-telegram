@@ -62,18 +62,18 @@ spec:
           successThreshold: 1
           timeoutSeconds: 5
         volumeMounts:
-        - name: tls
-          mountPath: /tls
-          readOnly: true
+        # - name: tls
+        #   mountPath: /tls
+        #   readOnly: true
         - name: jwk
           mountPath: /jwk
           readOnly: true
       imagePullSecrets:
       - name: regcred-github
       volumes:
-      - name: tls
-        secret:
-          secretName: fluffy-octo-telegram-tls
+      # - name: tls
+      #   secret:
+      #     secretName: fluffy-octo-telegram-tls
       - name: jwk
         projected:
           sources:
