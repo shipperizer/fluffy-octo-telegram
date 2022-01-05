@@ -4,7 +4,7 @@ metadata:
   name: fluffy-octo-telegram-grpc-app
 ---
 kind: Role
-apiVersion: rbac.authorization.k8s.io/v1beta1
+apiVersion: rbac.authorization.k8s.io/v1
 metadata:
   name: fluffy-octo-telegram-grpc-app
 rules:
@@ -13,7 +13,7 @@ rules:
   verbs: ["get","watch"]
 ---
 kind: RoleBinding
-apiVersion: rbac.authorization.k8s.io/v1beta1
+apiVersion: rbac.authorization.k8s.io/v1
 metadata:
   name: fluffy-octo-telegram-grpc-app
 subjects:
@@ -30,7 +30,7 @@ metadata:
   name: fluffy-octo-telegram-web-app
 ---
 kind: Role
-apiVersion: rbac.authorization.k8s.io/v1beta1
+apiVersion: rbac.authorization.k8s.io/v1
 metadata:
   name: fluffy-octo-telegram-web-app
 rules:
@@ -39,7 +39,7 @@ rules:
   verbs: ["get","watch"]
 ---
 kind: RoleBinding
-apiVersion: rbac.authorization.k8s.io/v1beta1
+apiVersion: rbac.authorization.k8s.io/v1
 metadata:
   name: fluffy-octo-telegram-web-app
 subjects:
