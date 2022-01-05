@@ -4,13 +4,13 @@ commonLabels:
   repo: fluffy-octo-telegram-app
   version: v2
 resources:
-- selfSignedIssuer.yaml
-- certificate.yaml
 - deployment.yaml
 - service.yaml
 - configMap.yaml
 - vservice.yaml
 - rbac.yaml
+# - selfSignedIssuer.yaml
+# - certificate.yaml
 # - httpProxy.yaml
 # - rootProxy.yaml
 # - extServer.yaml excluded due to errors with kustomize
