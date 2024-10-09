@@ -28,7 +28,7 @@ ENV APP_NAME=$app_name
 
 RUN make build
 
-FROM gcr.io/distroless/static:nonroot
+FROM gcr.io/distroless/static-debian12:nonroot
 
 LABEL org.opencontainers.image.source=https://github.com/shipperizer/fluffy-octo-telegram
 
