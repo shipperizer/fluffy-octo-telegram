@@ -15,7 +15,7 @@ type jwkAPI struct {
 }
 
 func (a *jwkAPI) Routes(router *mux.Router) {
-	router.HandleFunc("/api/.well-known/jwks.json", a.ListJWKs).Methods(http.MethodGet, http.MethodOptions)
+	router.HandleFunc("/.well-known/jwks.json", a.ListJWKs).Methods(http.MethodGet, http.MethodOptions)
 }
 
 func (a *jwkAPI) ListJWKs(w http.ResponseWriter, r *http.Request) {
