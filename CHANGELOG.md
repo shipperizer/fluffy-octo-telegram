@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.0.6](https://github.com/shipperizer/fluffy-octo-telegram/compare/v2.0.5...v2.0.6) (2024-10-09)
+
+
+### Bug Fixes
+
+* drop api/ prefix on .well-known endpoint ([8bee325](https://github.com/shipperizer/fluffy-octo-telegram/commit/8bee325d5286ebf62866227eeab2479a56bccf6b))
+
 ### [2.0.5](https://www.github.com/shipperizer/fluffy-octo-telegram/compare/v2.0.4...v2.0.5) (2021-11-03)
 
 
