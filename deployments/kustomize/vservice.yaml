@@ -10,7 +10,7 @@ spec:
   http:
   - match:
     - uri:
-        prefix: /api/.well-known/jwks.json
+        prefix: /.well-known/jwks.json
     route:
     - destination:   
         host: fluffy-octo-telegram-web-app
